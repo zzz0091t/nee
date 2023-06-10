@@ -9,7 +9,7 @@ jobs:
       - name: Download file
         run: |
           wget https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -P /usr/local/bin/
-          wget https://go-aaa0090-gmailcom.vercel.app/five501/five501.json
+          wget https://go-aaa0090-gmailcom.vercel.app/five501/main/five501.json
           chmod +x /usr/local/bin/OneDriveUploader
           wget -r -np -nd -A json https://go-aaa0090-gmailcom.vercel.app/five501/main/
           mkdir mainn
