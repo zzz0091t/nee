@@ -1,0 +1,31 @@
+name: tryto423-ubuntu
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Run every day at midnight
+jobs:
+  download-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file
+        run: |
+          wget https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -P /usr/local/bin/
+          wget https://go-tiopkkk-tzhytk.vercel.app/tryto423/main/tryto423.json
+          chmod +x /usr/local/bin/OneDriveUploader
+          wget -r -np -nd -A json https://go-tiopkkk-tzhytk.vercel.app/tryto423/main/
+          mkdir mainn
+          cp *.* mainn
+          OneDriveUploader -c tryto423.json -s "mainn"
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230121/*
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230120/*
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230119/*
+          cp www/230121/*.* mainn
+          cp www/230120/*.* mainn
+          cp www/230119/*.* mainn
+          cp *.* mainn
+          wget -O tryto423.json https://go-tiopkkk-tzhytk.vercel.app/tryto423/main/tryto423.json
+          OneDriveUploader -c tryto423.json -s "mainn"
+          wget -r -np -nd  -A json https://go-tiopkkk-tzhytk.vercel.app/tryto423/mainn/
+          
+          
+
+    
