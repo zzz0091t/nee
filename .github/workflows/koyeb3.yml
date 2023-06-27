@@ -1,0 +1,35 @@
+name: koyeb03-ubuntu
+on:
+  schedule:
+    - cron: '* */1 * * *' # Run every day at midnight
+jobs:
+  download-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file
+        run: |
+          wget https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -P /usr/local/bin/
+          wget https://ddd-amer6677.koyeb.app/koyeb03/main/auth.json
+          chmod +x /usr/local/bin/OneDriveUploader
+          wget -r -np -nd -A json https://ddd-amer6677.koyeb.app/koyeb03/main/
+          mkdir mainn
+          cp *.* mainn
+          OneDriveUploader -c auth.json -s "mainn"
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230121/*
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230120/*
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230119/*
+          cp www/230121/*.* mainn
+          cp www/230120/*.* mainn
+          cp www/230119/*.* mainn
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230117/*
+          wget -nH -m --ftp-user=zzz0091 --ftp-password=ftpftpA## ftp://ftp-zzz0091.alwaysdata.net/www/230118/*
+          cp www/230117/*.* mainn
+          cp www/230118/*.* mainn
+          cp *.* mainn
+          wget -O auth.json https://ddd-amer6677.koyeb.app/koyeb03/main/auth.json
+          OneDriveUploader -c auth.json -s "mainn"
+          wget -r -np -nd  -A json https://ddd-amer6677.koyeb.app/koyeb03/mainn/
+          
+          
+
+    
